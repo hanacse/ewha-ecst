@@ -76,6 +76,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Signup from "./Page/Signup";
 import Home from "./Page/Home.jsx"
+import FocusAnalysis from "./Page/Home.jsx"; // 추가된 컴포넌트
+import MyPage from "./Page/Home.jsx"; // 추가된 컴포넌트
 function App() {
     return(
         <Router>
@@ -89,7 +91,14 @@ function App() {
           <Signup />
         </Route>
 
-        <Route path="/">
+          <Route path="/focus-analysis">
+          <FocusAnalysis /> // 새로운 경로
+        </Route>
+        <Route path="/my-page">
+          <MyPage /> // 새로운 경로
+        </Route>
+
+        <Route path="/" exact>
           <Home />
         </Route>
 

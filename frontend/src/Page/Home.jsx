@@ -8,6 +8,7 @@ import TodoForm from "../components/TodoForm.jsx";
 import Store from "../TodoRedux/Store.jsx";
 
 import { useLocation } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 
 import PracticeCam from "../components/PracticeCam.jsx";
@@ -36,10 +37,11 @@ function Home() {
   }, []);
 
   const fetchData = async () => {
-    try {
+      let email;
+      try {
       if (location.state && location.state.email) {
         // 서버에서 받은 응답 데이터에서 사용자 이메일을 가져옴
-        const email = location.state.email;
+         email = location.state.email;
         console.log(email);
 
 
@@ -90,15 +92,15 @@ function Home() {
     return (
       <nav className="menu" style={{ textAlign: "center" }}>
         <div>
-          <button className="m-5 outline-none custom-btn btn-1 text-xl">
-            홈
-          </button>
-          <button className="m-5 outline-none custom-btn btn-1 text-xl">
-            집중도 분석
-          </button>
-          <button className="m-5 outline-none custom-btn btn-1 text-xl">
-            마이페이지
-          </button>
+          <Link to="/" className="m-5 outline-none custom-btn btn-1 text-xl">
+          홈
+        </Link>
+          <Link to="/focus-analysis" className="m-5 outline-none custom-btn btn-1 text-xl">
+          집중도 분석
+        </Link>
+        <Link to="/my-page" className="m-5 outline-none custom-btn btn-1 text-xl">
+          마이페이지
+        </Link>
         </div>
       </nav>
     );

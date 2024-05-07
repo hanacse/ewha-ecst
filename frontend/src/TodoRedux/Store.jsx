@@ -1,12 +1,14 @@
 import { createStore } from "redux";
 
 import {
- CAM_START, CAM_STOP
+
+  CAM_START, CAM_STOP
 } from "../TodoRedux/Actions.jsx";
 
 
 const initialState = {
-  cameraStream: null
+  cameraStream: null,
+
 };
 
 //Reducer: 데이터(state)를 modify
@@ -14,27 +16,14 @@ const Reducer = (state = initialState, action) => {
   switch (action.type) {
     //payload:action에 담겨진 실제 데이터
 
-    //공부 상태
-    // case STUDY_STATE:
+
+    //case STUDY_COMPLETED:
     //   return {
     //     ...state,
-    //     study: !action.payload.study,
+    //     todoItems: state.todoItems.map(item =>
+    //       item.id === action.payload.id ? { ...item, completed: action.payload.completed } : item
+    //     )
     //   };
-    //Progress
-    // case STUDY_COMPLETED:
-    //   return {
-    //     ...state,
-    //     todoItem: state.todoItem.map((todo) => {
-    //       if (todo.id === action.payload.id) {
-    //         return {
-    //           ...todo,
-    //           study_completed: !action.payload.study_completed,
-    //         };
-    //       }
-    //       return todo;
-    //     }),
-    //   };
-    //
     // //Todo
     // case TODO_TEXT:
     //   return {
@@ -46,25 +35,19 @@ const Reducer = (state = initialState, action) => {
     //       return todo;
     //     }),
     //   };
-    // //Edit
     // case EDIT_TODO:
     //   return {
     //     ...state,
-    //     todoItem: state.todoItem.map((todo) => {
-    //       if (todo.id === action.payload.id) {
-    //         return { ...todo, editText: action.payload.editText };
-    //       }
-    //       return todo;
-    //     }),
+    //     todoItems: state.todoItems.map(item =>
+    //       item.id === action.payload.id ? { ...item, text: action.payload.text } : item
+    //     )
     //   };
-    //
-    // //Delete
+    // //
     // case DELETE_TODO:
     //   return {
     //     ...state,
-    //     todoItem: state.todoItem.filter((todo) => todo.id !== action.payload),
+    //     todoItems: state.todoItems.filter(item => item.id !== action.payload)
     //   };
-    //
     // //리셋버튼
     // case RESET_STATE:
     //   return {

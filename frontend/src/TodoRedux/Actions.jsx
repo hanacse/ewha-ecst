@@ -1,51 +1,40 @@
 //<action으로 정의할 요소들>
 // 공부 완료/미완료 상태
 
-export const STUDY_COMPLETED = "STUDY_COMPLETED";
-//할 일 수정
-export const EDIT_TODO = "EDIT_TODO";
 
-//할 일 삭제
-export const DELETE_TODO = "DELETE_TODO";
-//공부 중인지 아닌지 상태
-export const STUDY_STATE = "STUDY_STATE";
-//Todo
-export const TODO_TEXT = "TODO_TEXT";
-//reset 상태
-export const RESET_STATE = "RESET_STATE";
 //캠 카메라 상태
 export const CAM_START = "CAM_START";
 export const CAM_STOP = 'STOP_CAMERA';
 
 //<action 정의>
-export const studyCompleted = (id, study_completed) => ({
+export const studyCompleted = (id, completed) => ({
   type: STUDY_COMPLETED,
-  payload: { id, study_completed },
+  payload: { id, completed }
 });
 
-export const editTodo = (id, editText) => ({
+export const editTodo = (id, text) => ({
   type: EDIT_TODO,
-  payload: { id, editText },
+  payload: { id, text }
 });
 
 export const deleteTodo = (id) => ({
   type: DELETE_TODO,
-  payload: { id },
+  payload: id
 });
 
-export const studyState = (id) => ({
+export const studyState = (study) => ({
   type: STUDY_STATE,
-  payload: { id },
+  payload: study
 });
 
-export const todoText = (id, study_todo) => ({
+export const todoText = (id, text) => ({
   type: TODO_TEXT,
-  payload: { id, study_todo },
+  payload: { id, text }
 });
 
-export const resetState = (id) => ({
+export const resetState = (reset) => ({
   type: RESET_STATE,
-  payload: { id },
+  payload: reset
 });
 
 export const startCamera = (stream) => ({

@@ -1,13 +1,9 @@
 
-
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useRef, useState } from "react";
 import { MdOutlineDeleteOutline, MdEditNote } from "react-icons/md";
-import { VscDebugStart } from "react-icons/vsc";
-import { TiMediaStopOutline } from "react-icons/ti";
-import PracticeCam from "./PracticeCam.jsx";
 import Camerabtn from "./Camerabtn.jsx";
-import { startCamera, stopCamera } from "../TodoRedux/Actions.jsx";
+import { startCamera, stopCamera,editTodo, deleteTodo } from "../TodoRedux/Actions.jsx";
 const TodoItem = ({
   todoItem,
   handleCheckbox,
@@ -22,6 +18,7 @@ const TodoItem = ({
   const [startActive, setStartActive] = useState(false);
   const [stopActive, setStopActive] = useState(false);
   const dispatch = useDispatch();
+
 
 
   const start = async () => {
@@ -51,6 +48,9 @@ const TodoItem = ({
   };
 
 
+
+
+
   return (
       <tr key={todoItem.id} className="border-b border-black">
         <td className="p-3 text-sm text-center">
@@ -71,7 +71,7 @@ const TodoItem = ({
         <span className="text-3xl cursor-pointer">
           <label htmlFor="my-modal">
             <MdEditNote
-                onClick={() => setEditText(todoItem)}
+                onClick={() => setEditText(todoItem.id)}
                 className="text-3xl cursor-pointer mt-2"
             />
           </label>
@@ -105,8 +105,7 @@ const TodoItem = ({
           </div>
 
         </td>
-        {/*<td onClick={start}>Start</td>*/}
-        {/*<td onClick={stop}>Stop</td>*/}
+
       </tr>
   );
 };
